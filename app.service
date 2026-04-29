@@ -1,0 +1,12 @@
+[Unit]
+Description=Demo App
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/app
+ExecStart=/app/venv/bin/gunicorn --workers 2 --bind 0.0.0.0:80 app:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
